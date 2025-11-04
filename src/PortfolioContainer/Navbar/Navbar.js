@@ -56,6 +56,11 @@ function Navbar() {
             </a>
           </li>
           <li>
+            <a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }}>
+              Education
+            </a>
+          </li>
+          <li>
             <a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>
               Skills
             </a>

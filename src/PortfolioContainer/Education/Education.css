@@ -1,0 +1,220 @@
+.education-container {
+  padding: 80px 20px;
+  background: 
+    radial-gradient(circle at 50% 30%, rgba(10, 190, 173, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #23263a 0%, #1f2235 100%);
+  background-size: 100% 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.education-parent {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.education-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.education-header .primary-text {
+  font-size: 2.5rem;
+  font-family: 'Poppins Bold';
+  color: var(--white);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.education-subtitle {
+  font-size: 1.1rem;
+  font-family: 'Poppins Regular';
+  color: #b1b1b1;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+}
+
+.education-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.education-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2.5rem;
+  border-left: 4px solid var(--sea-green);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(12, 191, 174, 0.2);
+}
+
+.education-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.education-institution-info {
+  flex: 1;
+}
+
+.education-institution {
+  color: var(--white);
+  font-family: 'Poppins Bold';
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.education-degree {
+  color: var(--sea-green);
+  font-family: 'Poppins SemiBold';
+  font-size: 1.1rem;
+  display: block;
+}
+
+.education-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  text-align: right;
+}
+
+.education-location {
+  color: #b1b1b1;
+  font-family: 'Poppins Regular';
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.education-location i {
+  color: var(--sea-green);
+}
+
+.education-period {
+  color: var(--white);
+  font-family: 'Poppins Medium';
+  font-size: 0.9rem;
+  background-color: rgba(12, 191, 174, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid var(--sea-green);
+}
+
+.education-card-body {
+  margin-top: 1.5rem;
+}
+
+.education-achievements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.education-achievements li {
+  color: #b1b1b1;
+  font-family: 'Poppins Regular';
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.education-achievements li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--sea-green);
+  font-weight: bold;
+}
+
+.education-achievements li:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .education-header .primary-text {
+    font-size: 2rem;
+  }
+
+  .education-card {
+    padding: 1.5rem;
+  }
+
+  .education-card-header {
+    flex-direction: column;
+  }
+
+  .education-meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .education-institution {
+    font-size: 1.3rem;
+  }
+
+  .education-degree {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .education-container {
+    padding: 50px 15px;
+  }
+
+  .education-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .education-header .primary-text {
+    font-size: 1.75rem;
+  }
+
+  .education-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .education-card {
+    padding: 1.2rem;
+  }
+
+  .education-institution {
+    font-size: 1.2rem;
+  }
+
+  .education-degree {
+    font-size: 0.95rem;
+  }
+
+  .education-location,
+  .education-period {
+    font-size: 0.85rem;
+  }
+
+  .education-achievements li {
+    font-size: 0.9rem;
+    padding-left: 1.2rem;
+    line-height: 1.7;
+  }
+}
+

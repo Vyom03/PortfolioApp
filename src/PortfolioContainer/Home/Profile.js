@@ -42,19 +42,19 @@ function Profile() {
               <Typical
                 loop={Infinity}
                 steps={[
-                  "Frontend Developer",
+                  "Software Developer",
                   3000,
-                  "React Developer",
+                  "Full-Stack Developer",
                   3000,
-                  "React Native Developer",
+                  "API Integration Specialist",
                   3000,
-                  "Freelancer",
+                  "Backend Developer",
                   3000,
                 ]}
               />
             </h3>
             <span className="profile-role-tagline">
-              I build modern, responsive web and mobile applications with a focus on user experience and clean code.
+              Dynamic Software Developer excelling in API integration and full-stack development. I enhance system performance through rigorous testing methodologies and optimized SQL processes.
             </span>
           </div>
           <div className="profile-options">
