@@ -36,5 +36,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "overrides": {
+    "react-typical": {
+      "react": "^18.1.0",
+      "react-dom": "^18.1.0"
+    }
   }
 }
