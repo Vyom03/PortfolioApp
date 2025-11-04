@@ -8,10 +8,12 @@ import Experience from './PortfolioContainer/Experience/Experience';
 import Skills from './PortfolioContainer/Skills/Skills';
 import Projects from './PortfolioContainer/Projects/Projects';
 import Contact from './PortfolioContainer/Contact/Contact';
+import GlobalParticles from './components/GlobalParticles';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ position: 'relative' }}>
+      <GlobalParticles />
       <Navbar />
       <Profile />
       <About />

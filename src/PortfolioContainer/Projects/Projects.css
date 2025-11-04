@@ -1,16 +1,38 @@
 .projects-container {
   padding: 80px 20px;
-  background-color: #1f2235;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255, 88, 35, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 10% 20%, rgba(10, 190, 173, 0.06) 0%, transparent 50%),
+    linear-gradient(135deg, #1f2235 0%, #23263a 50%, #1f2235 100%);
+  background-size: 100% 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.projects-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 88, 35, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 88, 35, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .projects-parent {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .projects-header {
@@ -189,12 +211,17 @@
 }
 
 @media screen and (max-width: 768px) {
+  .projects-container {
+    padding: 60px 20px;
+  }
+
   .projects-header .primary-text {
     font-size: 2rem;
   }
 
   .projects-body {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .projects-body .featured-project {
@@ -211,6 +238,12 @@
     right: 0;
     margin-bottom: 1rem;
     align-self: flex-start;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .project-card {
+    padding: 1.8rem;
   }
 
   .project-card-footer {
@@ -219,6 +252,46 @@
 
   .project-link {
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects-container {
+    padding: 50px 15px;
+  }
+
+  .projects-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .projects-header .primary-text {
+    font-size: 1.75rem;
+  }
+
+  .projects-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .project-card-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-card-body p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .tech-tag {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.7rem;
+  }
+
+  .featured-project .project-card-header h3 {
+    font-size: 1.3rem;
   }
 }
 

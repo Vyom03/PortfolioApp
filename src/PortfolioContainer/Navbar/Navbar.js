@@ -3,6 +3,7 @@ import './Navbar.css';
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,16 +19,32 @@ function Navbar() {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setMenuOpen(false); // Close menu on mobile after clicking
     }
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <nav className={scrolled ? 'navbar scrolled' : 'navbar'}>
-      <div className="navbar-container">
-        <div className="navbar-logo" onClick={() => scrollToSection('home')}>
-          <span className="logo-text">VT</span>
-        </div>
-        <ul className="navbar-menu">
+    <>
+      {menuOpen && <div className="menu-backdrop" onClick={toggleMenu}></div>}
+      <nav className={scrolled ? 'navbar scrolled' : 'navbar'}>
+        <div className="navbar-container">
+          <div className="navbar-logo" onClick={() => scrollToSection('home')}>
+            <span className="logo-text">VT</span>
+          </div>
+          <button 
+            className={`hamburger ${menuOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul className={`navbar-menu ${menuOpen ? 'active' : ''}`}>
           <li>
             <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>
               About
@@ -53,9 +70,10 @@ function Navbar() {
               Contact
             </a>
           </li>
-        </ul>
-      </div>
-    </nav>
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 }
 

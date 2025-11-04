@@ -61,6 +61,41 @@ body {
   font-family: "Poppins Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #0a0e27;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(10, 190, 173, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 88, 35, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(10, 190, 173, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0e27 0%, #1a1e3a 50%, #0a0e27 100%);
+  background-size: 100% 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(10, 190, 173, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 190, 173, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
 }
 
 code {
@@ -92,10 +127,23 @@ body ::-webkit-scrollbar-thumb {
   cursor: pointer;
   transition: 0.2s;
   font-family: "Poppins SemiBold";
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .btn:active {
   transform: translateY(2px);
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 480px) {
+  .btn {
+    padding: 12px 0;
+    width: 100%;
+    max-width: 280px;
+    font-size: 13px;
+  }
 }
 
 .primary-btn {

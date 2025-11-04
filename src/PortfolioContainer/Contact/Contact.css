@@ -1,16 +1,23 @@
 .contact-container {
   padding: 80px 20px;
-  background-color: #23263a;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(255, 88, 35, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(10, 190, 173, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #23263a 0%, #1f2235 100%);
+  background-size: 100% 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .contact-parent {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-header {
@@ -152,12 +159,70 @@
 }
 
 @media screen and (max-width: 768px) {
+  .contact-container {
+    padding: 60px 20px;
+  }
+
   .contact-header .primary-text {
     font-size: 2rem;
   }
 
   .contact-subtitle {
     font-size: 1rem;
+  }
+
+  .contact-body {
+    gap: 2rem;
+  }
+
+  .contact-info {
+    gap: 1.2rem;
+  }
+
+  .contact-item {
+    padding: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-container {
+    padding: 50px 15px;
+  }
+
+  .contact-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-header .primary-text {
+    font-size: 1.75rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.9rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .contact-item {
+    padding: 1rem;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .contact-label {
+    font-size: 0.85rem;
+  }
+
+  .contact-value {
+    font-size: 0.9rem;
   }
 }
 

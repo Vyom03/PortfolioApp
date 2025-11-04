@@ -1,16 +1,22 @@
 .about-container {
   padding: 80px 20px;
-  background-color: #1f2235;
+  background: 
+    radial-gradient(circle at 70% 30%, rgba(10, 190, 173, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #1f2235 0%, #23263a 100%);
+  background-size: 100% 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .about-parent {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .about-details {
@@ -97,6 +103,43 @@
 
   .highlights {
     grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-container {
+    padding: 50px 15px;
+  }
+
+  .about-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-header .primary-text {
+    font-size: 1.75rem;
+  }
+
+  .about-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .about-description-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .highlight-heading {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .highlights {
+    gap: 1rem;
+  }
+
+  .highlight {
+    padding: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 
