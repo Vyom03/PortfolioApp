@@ -1,11 +1,11 @@
 .contact-container {
-  padding: 80px 20px;
+  padding: 50px 20px;
   background: 
     radial-gradient(circle at 30% 70%, rgba(255, 88, 35, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 30%, rgba(10, 190, 173, 0.08) 0%, transparent 50%),
     linear-gradient(135deg, #23263a 0%, #1f2235 100%);
   background-size: 100% 100%;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,7 @@
 
 .contact-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .contact-header .primary-text {
@@ -30,7 +30,7 @@
   font-family: 'Poppins Bold';
   color: var(--white);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .contact-subtitle {

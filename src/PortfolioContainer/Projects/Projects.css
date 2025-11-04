@@ -1,11 +1,11 @@
 .projects-container {
-  padding: 80px 20px;
+  padding: 50px 20px;
   background: 
     radial-gradient(circle at 50% 50%, rgba(255, 88, 35, 0.08) 0%, transparent 60%),
     radial-gradient(circle at 10% 20%, rgba(10, 190, 173, 0.06) 0%, transparent 50%),
     linear-gradient(135deg, #1f2235 0%, #23263a 50%, #1f2235 100%);
   background-size: 100% 100%;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,7 +37,7 @@
 
 .projects-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .projects-header .primary-text {
@@ -45,7 +45,7 @@
   font-family: 'Poppins Bold';
   color: var(--white);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .projects-subtitle {
@@ -61,11 +61,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .projects-body .featured-project {
-  grid-column: 1 / -1;
   position: relative;
   background: linear-gradient(135deg, rgba(255, 88, 35, 0.1), rgba(12, 191, 174, 0.1));
   border: 2px solid var(--sea-green);
@@ -73,10 +72,10 @@
   padding-top: 3rem;
 }
 
-@media (min-width: 768px) {
-  .projects-body .featured-project {
-    grid-column: 1 / -1;
-    max-width: 100%;
+/* Ensure proper alignment on desktop */
+@media (min-width: 992px) {
+  .projects-body {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -109,7 +108,7 @@
 
 .featured-project .project-card-header h3 {
   color: var(--sea-green);
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin-top: 0.5rem;
 }
 
@@ -222,10 +221,6 @@
   .projects-body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-
-  .projects-body .featured-project {
-    grid-column: 1;
   }
 
   .featured-project .project-card-header h3 {

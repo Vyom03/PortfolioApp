@@ -11,9 +11,16 @@ function Projects() {
       featured: true
     },
     {
+      title: 'Student Management System',
+      description: 'A comprehensive student management system built with Laravel. Features complete CRUD operations, database management, user authentication, and efficient data handling for educational institutions.',
+      technologies: ['Laravel', 'PHP', 'MySQL'],
+      github: 'https://github.com/Vyom03/laravelProject',
+      featured: true
+    },
+    {
       title: 'Portfolio Website',
-      description: 'A responsive portfolio website built with React showcasing my work and skills. Features smooth scrolling navigation, multiple sections, and modern UI design.',
-      technologies: ['React', 'CSS', 'JavaScript'],
+      description: 'A responsive portfolio website built with React showcasing my work and skills. Features smooth scrolling navigation, multiple sections, interactive animations, and modern UI design.',
+      technologies: ['React', 'CSS', 'JavaScript', 'EmailJS'],
       github: 'https://github.com/Vyom03/PortfolioApp'
     },
     {
@@ -23,14 +30,8 @@ function Projects() {
       github: 'https://github.com/Vyom03/MemoryCardGame'
     },
     {
-      title: 'Student Management System',
-      description: 'First Laravel project - A comprehensive student management system with CRUD operations and database management.',
-      technologies: ['Laravel', 'PHP', 'MySQL'],
-      github: 'https://github.com/Vyom03/laravelProject'
-    },
-    {
       title: 'Todo List App',
-      description: 'First Vue.js project for learning - A task management application with add, edit, and delete functionality built with Vue.js.',
+      description: 'A task management application built with Vue.js. Features add, edit, delete functionality with a clean and intuitive user interface.',
       technologies: ['Vue.js', 'JavaScript', 'CSS'],
       github: 'https://github.com/Vyom03/Todo-List-vue'
     }

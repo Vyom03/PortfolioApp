@@ -9,7 +9,7 @@
       radial-gradient(circle at 70% 70%, rgba(255, 88, 35, 0.1) 0%, transparent 50%),
       linear-gradient(135deg, #1f2235 0%, #23263a 50%, #1f2235 100%);
     background-size: 100% 100%;
-    padding: 80px 20px 40px;
+    padding: 60px 20px 30px;
     position: relative;
     overflow: hidden;
 }
