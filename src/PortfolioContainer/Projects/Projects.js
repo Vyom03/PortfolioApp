@@ -4,6 +4,13 @@ import './Projects.css';
 function Projects() {
   const projects = [
     {
+      title: 'School Management System',
+      description: 'A full-featured school management system built with Blade templating for efficient school administration. Comprehensive system with user authentication, student management, course scheduling, and administrative features.',
+      technologies: ['Laravel', 'Blade', 'PHP', 'MySQL'],
+      github: 'https://github.com/Vyom03/school-management-system',
+      featured: true
+    },
+    {
       title: 'Portfolio Website',
       description: 'A responsive portfolio website built with React showcasing my work and skills. Features smooth scrolling navigation, multiple sections, and modern UI design.',
       technologies: ['React', 'CSS', 'JavaScript'],
@@ -20,12 +27,6 @@ function Projects() {
       description: 'First Laravel project - A comprehensive student management system with CRUD operations and database management.',
       technologies: ['Laravel', 'PHP', 'MySQL'],
       github: 'https://github.com/Vyom03/laravelProject'
-    },
-    {
-      title: 'School Management System',
-      description: 'A full-featured school management system built with Blade templating for efficient school administration.',
-      technologies: ['Laravel', 'Blade', 'PHP'],
-      github: 'https://github.com/Vyom03/school-management-system'
     },
     {
       title: 'Todo List App',
@@ -48,7 +49,12 @@ function Projects() {
         </div>
         <div className="projects-body">
           {projects.map((project, index) => (
-            <div key={index} className="project-card">
+            <div key={index} className={`project-card ${project.featured ? 'featured-project' : ''}`}>
+              {project.featured && (
+                <div className="featured-badge">
+                  <i className="fa fa-star"></i> Featured Project
+                </div>
+              )}
               <div className="project-card-header">
                 <h3>{project.title}</h3>
               </div>
@@ -56,14 +62,14 @@ function Projects() {
                 <p>{project.description}</p>
                 <div className="project-technologies">
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">
+                    <span key={techIndex} className={`tech-tag ${project.featured ? 'featured-tech' : ''}`}>
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
               <div className="project-card-footer">
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className={`project-link ${project.featured ? 'featured-link' : ''}`}>
                   <i className="fa fa-github"></i> GitHub
                 </a>
               </div>
