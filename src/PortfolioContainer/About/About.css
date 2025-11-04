@@ -1,14 +1,24 @@
 .about-container {
   padding: 50px 20px;
-  background: 
-    radial-gradient(circle at 70% 30%, rgba(10, 190, 173, 0.1) 0%, transparent 50%),
-    linear-gradient(135deg, #1f2235 0%, #23263a 100%);
   background-size: 100% 100%;
   min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .about-container {
+  background: 
+    radial-gradient(circle at 70% 30%, rgba(10, 190, 173, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #1f2235 0%, #23263a 100%);
+}
+
+[data-theme="light"] .about-container {
+  background: 
+    radial-gradient(circle at 70% 30%, rgba(10, 190, 173, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
 }
 
 .about-parent {
@@ -21,7 +31,7 @@
 
 .about-details {
   text-align: center;
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 .about-details-name {
@@ -41,7 +51,8 @@
   font-size: 1.2rem;
   font-family: 'Poppins Regular';
   line-height: 1.8;
-  color: #e0e0e0;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 .about-details-highlights {
@@ -52,7 +63,8 @@
   font-size: 1.5rem;
   font-family: 'Poppins SemiBold';
   margin-bottom: 2rem;
-  color: var(--white);
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .highlights {
@@ -68,14 +80,49 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--card-bg);
   border-radius: 10px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .highlight {
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.25),
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .highlight {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .highlight:hover {
   transform: translateY(-5px);
+}
+
+[data-theme="dark"] .highlight:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 10px 20px rgba(255, 88, 35, 0.2),
+    0 5px 10px rgba(255, 88, 35, 0.15),
+    inset 0 1px 0 rgba(255, 88, 35, 0.1);
+}
+
+[data-theme="light"] .highlight:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 8px 16px rgba(255, 88, 35, 0.18),
+    0 4px 8px rgba(255, 88, 35, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .highlight-blob {
@@ -89,7 +136,7 @@
 .highlight span {
   font-family: 'Poppins Medium';
   font-size: 1rem;
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 @media screen and (max-width: 768px) {

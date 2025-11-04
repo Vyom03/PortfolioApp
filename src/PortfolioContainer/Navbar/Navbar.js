@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useTheme } from '../../contexts/ThemeContext';
 import './Navbar.css';
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,6 +78,15 @@ function Navbar() {
             </a>
           </li>
           </ul>
+          <button 
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          >
+            <i className={`fa ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
+            <span>Change Mode</span>
+          </button>
         </div>
       </nav>
     </>

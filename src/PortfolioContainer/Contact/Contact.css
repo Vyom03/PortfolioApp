@@ -1,15 +1,26 @@
 .contact-container {
-  padding: 50px 20px;
-  background: 
-    radial-gradient(circle at 30% 70%, rgba(255, 88, 35, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 30%, rgba(10, 190, 173, 0.08) 0%, transparent 50%),
-    linear-gradient(135deg, #23263a 0%, #1f2235 100%);
+  padding: 50px 20px 30px 20px;
   background-size: 100% 100%;
   min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .contact-container {
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(255, 88, 35, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(10, 190, 173, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #23263a 0%, #1f2235 100%);
+}
+
+[data-theme="light"] .contact-container {
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(255, 88, 35, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(10, 190, 173, 0.04) 0%, transparent 50%),
+    linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
 }
 
 .contact-parent {
@@ -28,18 +39,20 @@
 .contact-header .primary-text {
   font-size: 2.5rem;
   font-family: 'Poppins Bold';
-  color: var(--white);
+  color: var(--text-primary);
   display: block;
   margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
 }
 
 .contact-subtitle {
   font-size: 1.1rem;
   font-family: 'Poppins Regular';
-  color: #b1b1b1;
+  color: var(--text-secondary);
   max-width: 600px;
   margin: 0 auto;
   display: block;
+  transition: color 0.3s ease;
 }
 
 .contact-body {
@@ -60,14 +73,49 @@
   align-items: flex-start;
   gap: 1.5rem;
   padding: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--card-bg);
   border-radius: 10px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .contact-item {
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.25),
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .contact-item {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .contact-item:hover {
   transform: translateX(10px);
+}
+
+[data-theme="dark"] .contact-item:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 10px 20px rgba(10, 190, 173, 0.2),
+    0 5px 10px rgba(10, 190, 173, 0.15),
+    inset 0 1px 0 rgba(10, 190, 173, 0.1);
+}
+
+[data-theme="light"] .contact-item:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 8px 16px rgba(10, 190, 173, 0.18),
+    0 4px 8px rgba(10, 190, 173, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .contact-icon {
@@ -100,8 +148,9 @@
 
 .contact-value {
   font-family: 'Poppins Regular';
-  color: var(--white);
+  color: var(--text-primary);
   font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
 .contact-form {
@@ -118,13 +167,13 @@
 .form-group textarea {
   width: 100%;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
   border-radius: 10px;
-  color: var(--white);
+  color: var(--text-primary);
   font-family: 'Poppins Regular';
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .form-group input:focus,
@@ -135,7 +184,7 @@
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #b1b1b1;
+  color: var(--text-secondary);
 }
 
 .form-group textarea {
@@ -160,7 +209,7 @@
 
 @media screen and (max-width: 768px) {
   .contact-container {
-    padding: 60px 20px;
+    padding: 60px 20px 30px 20px;
   }
 
   .contact-header .primary-text {
@@ -186,7 +235,7 @@
 
 @media screen and (max-width: 480px) {
   .contact-container {
-    padding: 50px 15px;
+    padding: 50px 15px 25px 15px;
   }
 
   .contact-header {

@@ -9,6 +9,7 @@ import Education from './PortfolioContainer/Education/Education';
 import Skills from './PortfolioContainer/Skills/Skills';
 import Projects from './PortfolioContainer/Projects/Projects';
 import Contact from './PortfolioContainer/Contact/Contact';
+import Footer from './PortfolioContainer/Footer/Footer';
 import GlobalParticles from './components/GlobalParticles';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Skills />
       <Projects />
       <Contact />
+      <Footer />
     </div>
   );
 }
