@@ -1,0 +1,16 @@
+# Mark font files as vendored so they don't affect language stats
+*.ttf linguist-vendored
+*.otf linguist-vendored
+
+# Mark image files as documentation
+*.jpg linguist-documentation
+*.png linguist-documentation
+*.pdf linguist-documentation
+
+# Explicitly mark JavaScript files as JavaScript
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
+
+# Mark CSS files (keep them but React should be primary)
+*.css linguist-detectable=true
+

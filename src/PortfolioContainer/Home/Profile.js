@@ -26,13 +26,13 @@ function Profile() {
           </div>
 
           <div className="profile-details-name">
-            <span className="priary-text">
+            <span className="primary-text">
               {" "}
               Hello, I'M <span className="highlighted-text"> Vyom Trivedi</span>
             </span>
           </div>
           <div className="profile-details-role">
-            <span className="priary-text">
+            <span className="primary-text">
               {" "}
               <h3>
                 <Typical
@@ -50,11 +50,11 @@ function Profile() {
                 />
               </h3>
             </span>
-            <span classname="profile-role-tagline">
+            <span className="profile-role-tagline">
               I like to learn and implement things.
             </span>
           </div>
-          <div classsName="profile-options">
+          <div className="profile-options">
             <button className="btn primary-btn">
               {""}
               Hire Me{" "}
