@@ -1,0 +1,132 @@
+.projects-container {
+  padding: 80px 20px;
+  background-color: #1f2235;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects-parent {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.projects-header .primary-text {
+  font-size: 2.5rem;
+  font-family: 'Poppins Bold';
+  color: var(--white);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.projects-subtitle {
+  font-size: 1.1rem;
+  font-family: 'Poppins Regular';
+  color: #b1b1b1;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+}
+
+.projects-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 88, 35, 0.3);
+  border-color: var(--dark-orange);
+}
+
+.project-card-header h3 {
+  color: var(--white);
+  font-family: 'Poppins Bold';
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-card-body p {
+  color: #b1b1b1;
+  font-family: 'Poppins Regular';
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  background-color: rgba(255, 88, 35, 0.2);
+  color: var(--dark-orange);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-family: 'Poppins Medium';
+  font-size: 0.85rem;
+  border: 1px solid var(--dark-orange);
+}
+
+.project-card-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Poppins Medium';
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--dark-orange);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: var(--dark-orange);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .projects-header .primary-text {
+    font-size: 2rem;
+  }
+
+  .projects-body {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card-footer {
+    flex-direction: column;
+  }
+
+  .project-link {
+    justify-content: center;
+  }
+}
+

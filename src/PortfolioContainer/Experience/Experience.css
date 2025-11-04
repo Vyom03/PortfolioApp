@@ -1,0 +1,173 @@
+.experience-container {
+  padding: 80px 20px;
+  background-color: #23263a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-parent {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.experience-header .primary-text {
+  font-size: 2.5rem;
+  font-family: 'Poppins Bold';
+  color: var(--white);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.experience-subtitle {
+  font-size: 1.1rem;
+  font-family: 'Poppins Regular';
+  color: #b1b1b1;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+}
+
+.experience-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.experience-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2.5rem;
+  border-left: 4px solid var(--dark-orange);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(255, 88, 35, 0.2);
+}
+
+.experience-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.experience-company-info {
+  flex: 1;
+}
+
+.experience-company {
+  color: var(--white);
+  font-family: 'Poppins Bold';
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.experience-position {
+  color: var(--dark-orange);
+  font-family: 'Poppins SemiBold';
+  font-size: 1.1rem;
+  display: block;
+}
+
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  text-align: right;
+}
+
+.experience-location {
+  color: #b1b1b1;
+  font-family: 'Poppins Regular';
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.experience-location i {
+  color: var(--dark-orange);
+}
+
+.experience-period {
+  color: var(--white);
+  font-family: 'Poppins Medium';
+  font-size: 0.9rem;
+  background-color: rgba(255, 88, 35, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid var(--dark-orange);
+}
+
+.experience-card-body {
+  margin-top: 1.5rem;
+}
+
+.experience-achievements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-achievements li {
+  color: #b1b1b1;
+  font-family: 'Poppins Regular';
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.experience-achievements li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--dark-orange);
+  font-weight: bold;
+}
+
+.experience-achievements li:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .experience-header .primary-text {
+    font-size: 2rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+  }
+
+  .experience-card-header {
+    flex-direction: column;
+  }
+
+  .experience-meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .experience-company {
+    font-size: 1.3rem;
+  }
+
+  .experience-position {
+    font-size: 1rem;
+  }
+}
+

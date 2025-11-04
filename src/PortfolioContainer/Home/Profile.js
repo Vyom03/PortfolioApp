@@ -2,9 +2,16 @@ import React from "react";
 import Typical from "react-typical";
 
 import './Profile.css';
+
 function Profile() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
-    <div className="profile-container">
+    <div id="home" className="profile-container">
       <div className="profile-parent">
         <div className="profile-details">
           <div className="colz">
@@ -18,7 +25,7 @@ function Profile() {
             <a href="https://www.facebook.com/vyom.trivedi.71/">
               <i className="fa fa-facebook-square"></i>
             </a>
-            <a href="https://www.instagram.com/vyom_3vedi_/">
+            <a href="https://www.instagram.com/vyomtrivedi_/">
               <i className="fa fa-instagram"></i>
             </a>
 
@@ -27,50 +34,44 @@ function Profile() {
 
           <div className="profile-details-name">
             <span className="primary-text">
-              {" "}
-              Hello, I'M <span className="highlighted-text"> Vyom Trivedi</span>
+              Hello, I'm <span className="highlighted-text">Vyom Trivedi</span>
             </span>
           </div>
           <div className="profile-details-role">
-            <span className="primary-text">
-              {" "}
-              <h3>
-                <Typical
-                  loop={Infinity}
-                  steps={[
-                    "Enthusiastic Dev🔴",
-                    3000,
-                    "Frontend Developer🖥️",
-                    3000,
-                    "FreeLancer🍀",
-                    3000,
-                    "React/React Native Dev🌟",
-                    3000,
-                  ]}
-                />
-              </h3>
-            </span>
+            <h3 className="profile-role-title">
+              <Typical
+                loop={Infinity}
+                steps={[
+                  "Frontend Developer",
+                  3000,
+                  "React Developer",
+                  3000,
+                  "React Native Developer",
+                  3000,
+                  "Freelancer",
+                  3000,
+                ]}
+              />
+            </h3>
             <span className="profile-role-tagline">
-              I like to learn and implement things.
+              I build modern, responsive web and mobile applications with a focus on user experience and clean code.
             </span>
           </div>
           <div className="profile-options">
-            <button className="btn primary-btn">
+            <button 
+              className="btn primary-btn"
+              onClick={() => scrollToSection('contact')}
+            >
               {""}
               Hire Me{" "}
             </button>
             <a
-              href="Vyom Trivedi Resume.pdf"
-              download="Vyom Trivedi Resume.pdf"
+              href="VyomResume.pdf"
+              download="VyomResume.pdf"
             >
               <button className="btn highlighted-btn">Get Resume</button>
             </a>
           </div>
-        </div>
-        <div className="profile-picture">
-            <div className="profile-picture-background">
-                
-            </div>
         </div>
       </div>
     </div>
