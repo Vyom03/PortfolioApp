@@ -28,7 +28,7 @@ function Footer() {
             <i className="fa fa-envelope"></i>
           </a>
           <a 
-            href="tel:+16138691355" 
+            href="tel:+919227161240" 
             className="footer-link"
             aria-label="Phone"
           >

@@ -84,7 +84,7 @@ function Contact() {
               </div>
               <div className="contact-details">
                 <span className="contact-label">Phone</span>
-                <span className="contact-value">(+1) 613-869-1355</span>
+                <span className="contact-value">+91 9227161240</span>
               </div>
             </div>
             <div className="contact-item">
