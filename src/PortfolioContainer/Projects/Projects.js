@@ -18,6 +18,12 @@ function Projects() {
       featured: true
     },
     {
+      title: 'Learning Management System',
+      description: 'A comprehensive learning management system designed for educational institutions. Features course management, student enrollment, progress tracking, and interactive learning modules for effective online education.',
+      technologies: ['Laravel', 'PHP', 'MySQL', 'Vue.js'],
+      github: 'https://github.com/Vyom03/learning-management-system'
+    },
+    {
       title: 'Portfolio Website',
       description: 'A responsive portfolio website built with React showcasing my work and skills. Features smooth scrolling navigation, multiple sections, interactive animations, and modern UI design.',
       technologies: ['React', 'CSS', 'JavaScript', 'EmailJS'],
