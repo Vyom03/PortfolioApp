@@ -93,7 +93,7 @@ function Contact() {
               </div>
               <div className="contact-details">
                 <span className="contact-label">Location</span>
-                <span className="contact-value">Ottawa, ON K2G 4K8, Canada</span>
+                <span className="contact-value">Ahmedabad, Gujarat</span>
               </div>
             </div>
           </div>
