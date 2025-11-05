@@ -11,6 +11,7 @@ import Projects from './PortfolioContainer/Projects/Projects';
 import Contact from './PortfolioContainer/Contact/Contact';
 import Footer from './PortfolioContainer/Footer/Footer';
 import GlobalParticles from './components/GlobalParticles';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

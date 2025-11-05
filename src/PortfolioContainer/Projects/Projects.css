@@ -70,6 +70,159 @@
   transition: color 0.3s ease;
 }
 
+/* Search and Filter Controls */
+.projects-controls {
+  margin: 2.5rem 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects-search {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.projects-search i.fa-search {
+  position: absolute;
+  left: 1rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 3rem;
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  font-family: 'Poppins Regular';
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--dark-orange);
+  box-shadow: 0 0 0 3px rgba(255, 88, 35, 0.1);
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.clear-search {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.clear-search:hover {
+  color: var(--dark-orange);
+}
+
+.projects-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 25px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  font-family: 'Poppins Medium';
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.filter-btn:hover {
+  border-color: var(--dark-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 88, 35, 0.2);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--dark-orange), var(--sea-green));
+  border-color: transparent;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(255, 88, 35, 0.3);
+}
+
+[data-theme="dark"] .filter-btn.active {
+  box-shadow: 0 4px 12px rgba(255, 88, 35, 0.4);
+}
+
+[data-theme="light"] .filter-btn.active {
+  box-shadow: 0 4px 12px rgba(255, 88, 35, 0.25);
+}
+
+.projects-count {
+  text-align: center;
+  margin: 1.5rem 0;
+  color: var(--text-secondary);
+  font-family: 'Poppins Regular';
+  font-size: 0.95rem;
+}
+
+.no-projects {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-secondary);
+}
+
+.no-projects i {
+  font-size: 3rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.no-projects p {
+  font-family: 'Poppins Regular';
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.reset-filters-btn {
+  padding: 0.7rem 1.8rem;
+  border: 2px solid var(--dark-orange);
+  border-radius: 25px;
+  background-color: transparent;
+  color: var(--dark-orange);
+  font-family: 'Poppins Medium';
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.reset-filters-btn:hover {
+  background-color: var(--dark-orange);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 88, 35, 0.3);
+}
+
 .projects-body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -293,6 +446,28 @@
     font-size: 2rem;
   }
 
+  .projects-controls {
+    margin: 2rem 0;
+  }
+
+  .projects-search {
+    margin-bottom: 1.2rem;
+  }
+
+  .search-input {
+    padding: 0.8rem 2.5rem 0.8rem 2.8rem;
+    font-size: 0.95rem;
+  }
+
+  .projects-filters {
+    gap: 0.6rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
   .projects-body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -331,7 +506,7 @@
   }
 
   .projects-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .projects-header .primary-text {
@@ -340,6 +515,50 @@
 
   .projects-subtitle {
     font-size: 0.95rem;
+  }
+
+  .projects-controls {
+    margin: 1.5rem 0;
+  }
+
+  .search-input {
+    padding: 0.7rem 2.5rem 0.7rem 2.5rem;
+    font-size: 0.9rem;
+  }
+
+  .search-input::placeholder {
+    font-size: 0.85rem;
+  }
+
+  .projects-filters {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .projects-count {
+    font-size: 0.85rem;
+    margin: 1rem 0;
+  }
+
+  .no-projects {
+    padding: 3rem 1rem;
+  }
+
+  .no-projects i {
+    font-size: 2.5rem;
+  }
+
+  .no-projects p {
+    font-size: 0.95rem;
+  }
+
+  .reset-filters-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
   }
 
   .project-card {
