@@ -427,6 +427,7 @@
 @media (hover: none) {
   .featured-badge {
     animation: none;
+  }
 }
 
 .featured-badge i {
