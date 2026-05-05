@@ -15,43 +15,37 @@ export const use3DTilt = ({
 } = {}) => {
   const elementRef = useRef(null);
 
-  const handleMouseMove = (e) => {
-    const element = elementRef.current;
-    if (!element) return;
-
-    const rect = element.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / centerY) * -maxTilt;
-    const rotateY = ((x - centerX) / centerX) * maxTilt;
-
-    element.style.transform = `
-      perspective(${perspective}px)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-      scale3d(${scale}, ${scale}, ${scale})
-    `;
-    element.style.transition = 'transform 0.1s ease-out';
-  };
-
-  const handleMouseLeave = () => {
-    const element = elementRef.current;
-    if (!element) return;
-
-    element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    element.style.transition = 'transform 0.5s ease-out';
-  };
-
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
 
     element.style.transformStyle = 'preserve-3d';
     element.style.willChange = 'transform';
+
+    const handleMouseMove = (e) => {
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -maxTilt;
+      const rotateY = ((x - centerX) / centerX) * maxTilt;
+
+      element.style.transform = `
+        perspective(${perspective}px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        scale3d(${scale}, ${scale}, ${scale})
+      `;
+      element.style.transition = 'transform 0.1s ease-out';
+    };
+
+    const handleMouseLeave = () => {
+      element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+      element.style.transition = 'transform 0.5s ease-out';
+    };
 
     element.addEventListener('mousemove', handleMouseMove);
     element.addEventListener('mouseleave', handleMouseLeave);
@@ -60,7 +54,7 @@ export const use3DTilt = ({
       element.removeEventListener('mousemove', handleMouseMove);
       element.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [maxTilt, scale, perspective]);
 
   return { ref: elementRef };
 };
