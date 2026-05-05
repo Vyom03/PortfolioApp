@@ -21,7 +21,7 @@ function Footer() {
             <i className="fa fa-github"></i>
           </a>
           <a 
-            href="mailto:vyomtriv@gmail.com" 
+            href="mailto:vyom6943@gmail.com"
             className="footer-link"
             aria-label="Email"
           >

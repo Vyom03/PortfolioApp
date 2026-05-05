@@ -1,0 +1,66 @@
+.floating-shapes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-shape {
+  position: absolute;
+  opacity: 0.08;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sea-green), var(--dark-orange));
+  filter: blur(50px);
+  animation: float infinite ease-in-out;
+}
+
+.shape-0 {
+  background: linear-gradient(135deg, rgba(10, 190, 173, 0.3), rgba(10, 190, 173, 0.1));
+  border-radius: 50%;
+}
+
+.shape-1 {
+  background: linear-gradient(135deg, rgba(255, 88, 35, 0.3), rgba(255, 88, 35, 0.1));
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.shape-2 {
+  background: linear-gradient(135deg, rgba(10, 190, 173, 0.2), rgba(255, 88, 35, 0.2));
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.shape-3 {
+  background: linear-gradient(135deg, rgba(255, 88, 35, 0.2), rgba(10, 190, 173, 0.3));
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) rotate(180deg) scale(0.9);
+  }
+  75% {
+    transform: translate(20px, 30px) rotate(270deg) scale(1.05);
+  }
+}
+
+[data-theme="light"] .floating-shape {
+  opacity: 0.15;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .floating-shape {
+    animation: none;
+  }
+}
+

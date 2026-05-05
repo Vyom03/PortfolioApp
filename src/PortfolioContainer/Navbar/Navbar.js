@@ -37,7 +37,7 @@ function Navbar() {
           <div className="navbar-logo" onClick={() => scrollToSection('home')}>
             <span className="logo-text">VT</span>
           </div>
-          <button 
+          <button
             className={`hamburger ${menuOpen ? 'active' : ''}`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
@@ -47,38 +47,38 @@ function Navbar() {
             <span></span>
           </button>
           <ul className={`navbar-menu ${menuOpen ? 'active' : ''}`}>
-          <li>
-            <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }}>
-              Experience
-            </a>
-          </li>
-          <li>
-            <a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }}>
-              Education
-            </a>
-          </li>
-          <li>
-            <a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>
-              Skills
-            </a>
-          </li>
-          <li>
-            <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>
-              Contact
-            </a>
-          </li>
+            <li>
+              <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }}>
+                Experience
+              </a>
+            </li>
+            <li>
+              <a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }}>
+                Education
+              </a>
+            </li>
+            <li>
+              <a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>
+                Skills
+              </a>
+            </li>
+            <li>
+              <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>
+                Contact
+              </a>
+            </li>
           </ul>
-          <button 
+          <button
             className="theme-toggle-btn"
             onClick={toggleTheme}
             aria-label="Toggle theme"

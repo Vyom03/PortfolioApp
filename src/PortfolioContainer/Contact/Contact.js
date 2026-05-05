@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import AnimatedSection from '../../components/AnimatedSection';
+import MagneticButton from '../../components/MagneticButton';
 import './Contact.css';
 
 function Contact() {
@@ -26,7 +28,7 @@ function Contact() {
     // EmailJS configuration
     // TODO: Replace these with your EmailJS credentials
     // Get these from: https://dashboard.emailjs.com/admin
-    const serviceID = 'service_wvbduef';
+    const serviceID = 'service_z4cec15';
     const templateID = 'template_rlix8hi';
     const publicKey = '0bfSSbAoEJqK4_d_B';
 
@@ -59,93 +61,100 @@ function Contact() {
   return (
     <section id="contact" className="contact-container">
       <div className="contact-parent">
-        <div className="contact-header">
-          <span className="primary-text">
-            Get In <span className="highlighted-text">Touch</span>
-          </span>
-          <span className="contact-subtitle">
-            Feel free to reach out to me for any opportunities or collaborations.
-          </span>
-        </div>
-        <div className="contact-body">
-          <div className="contact-info">
-            <div className="contact-item">
-              <div className="contact-icon">
-                <i className="fa fa-envelope"></i>
-              </div>
-              <div className="contact-details">
-                <span className="contact-label">Email</span>
-                <span className="contact-value">vyomtriv@gmail.com</span>
-              </div>
-            </div>
-            <div className="contact-item">
-              <div className="contact-icon">
-                <i className="fa fa-phone"></i>
-              </div>
-              <div className="contact-details">
-                <span className="contact-label">Phone</span>
-                <span className="contact-value">+91 9227161240</span>
-              </div>
-            </div>
-            <div className="contact-item">
-              <div className="contact-icon">
-                <i className="fa fa-map-marker"></i>
-              </div>
-              <div className="contact-details">
-                <span className="contact-label">Location</span>
-                <span className="contact-value">Ahmedabad, Gujarat</span>
-              </div>
-            </div>
+        <AnimatedSection animationType="slide-up" delay={0}>
+          <div className="contact-header">
+            <span className="primary-text">
+              Get In <span className="highlighted-text">Touch</span>
+            </span>
+            <span className="contact-subtitle">
+              Feel free to reach out to me for any opportunities or collaborations.
+            </span>
           </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+        </AnimatedSection>
+        <div className="contact-body">
+          <AnimatedSection animationType="slide-right" delay={50}>
+            <div className="contact-info">
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <i className="fa fa-envelope"></i>
+                </div>
+                <div className="contact-details">
+                  <span className="contact-label">Email</span>
+                  <span className="contact-value">vyom6943@gmail.com</span>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <i className="fa fa-phone"></i>
+                </div>
+                <div className="contact-details">
+                  <span className="contact-label">Phone</span>
+                  <span className="contact-value">+91 9227161240</span>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <i className="fa fa-map-marker"></i>
+                </div>
+                <div className="contact-details">
+                  <span className="contact-label">Location</span>
+                  <span className="contact-value">Ahmedabad, Gujarat</span>
+                </div>
+              </div>
             </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            <button 
-              type="submit" 
-              className="btn highlighted-btn"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-            {submitStatus === 'success' && (
-              <p style={{ color: '#0CBFAE', marginTop: '1rem', textAlign: 'center' }}>
-                ✓ Message sent successfully! I'll get back to you soon.
-              </p>
-            )}
-            {submitStatus === 'error' && (
-              <p style={{ color: '#e44f4f', marginTop: '1rem', textAlign: 'center' }}>
-                ✗ Failed to send message. Please try again or contact me directly at vyomtriv@gmail.com
-              </p>
-            )}
-          </form>
+          </AnimatedSection>
+          <AnimatedSection animationType="slide-left" delay={100}>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                ></textarea>
+              </div>
+              <MagneticButton
+                type="submit"
+                className="btn highlighted-btn"
+                disabled={isSubmitting}
+                distance={15}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </MagneticButton>
+              {submitStatus === 'success' && (
+                <p style={{ color: '#0CBFAE', marginTop: '1rem', textAlign: 'center' }}>
+                  ✓ Message sent successfully! I'll get back to you soon.
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p style={{ color: '#e44f4f', marginTop: '1rem', textAlign: 'center' }}>
+                  ✗ Failed to send message. Please try again or contact me directly at vyom6943@gmail.com
+                </p>
+              )}
+            </form>
+          </AnimatedSection>
         </div>
       </div>
     </section>

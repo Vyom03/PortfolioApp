@@ -1,4 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import AnimatedSection from '../../components/AnimatedSection';
+import TiltCard from '../../components/TiltCard';
 import './Projects.css';
 
 function Projects() {
@@ -105,16 +107,16 @@ function Projects() {
               const githubTechs = Object.keys(languages)
                 .map(lang => techMapping[lang] || lang)
                 .filter(lang => lang && lang !== 'Markdown' && lang !== 'JSON' && lang !== 'YAML'); // Filter out common non-tech languages
-              
+
               // Merge: GitHub languages + manually specified technologies (remove duplicates)
               const allTechs = [...new Set([...githubTechs, ...(project.technologies || [])])];
-              
+
               return { ...project, technologies: allTechs };
             }
           } catch (error) {
             console.error(`Error fetching languages for ${repoName}:`, error);
           }
-          
+
           // Fallback to original technologies if API call fails
           return { ...project, technologies: project.technologies || [] };
         })
@@ -141,16 +143,16 @@ function Projects() {
   // Filter projects based on selected filter and search term
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
-      const matchesFilter = selectedFilter === 'All' || 
+      const matchesFilter = selectedFilter === 'All' ||
         project.technologies.some(tech => tech === selectedFilter);
-      
-      const matchesSearch = searchTerm === '' || 
+
+      const matchesSearch = searchTerm === '' ||
         project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        project.technologies.some(tech => 
+        project.technologies.some(tech =>
           tech.toLowerCase().includes(searchTerm.toLowerCase())
         );
-      
+
       return matchesFilter && matchesSearch;
     });
   }, [projects, selectedFilter, searchTerm]);
@@ -170,103 +172,117 @@ function Projects() {
   return (
     <section id="projects" className="projects-container">
       <div className="projects-parent">
-        <div className="projects-header">
-          <span className="primary-text">
-            My <span className="highlighted-text">Projects</span>
-          </span>
-          <span className="projects-subtitle">
-            Here are some of my recent projects that showcase my skills and experience.
-          </span>
-        </div>
+        <AnimatedSection animationType="slide-up" delay={0}>
+          <div className="projects-header">
+            <span className="primary-text">
+              My <span className="highlighted-text">Projects</span>
+            </span>
+            <span className="projects-subtitle">
+              Here are some of my recent projects that showcase my skills and experience.
+            </span>
+          </div>
+        </AnimatedSection>
 
         {/* Search and Filter Controls */}
-        <div className="projects-controls">
-          <div className="projects-search">
-            <i className="fa fa-search"></i>
-            <input
-              type="text"
-              placeholder="Search projects by name, description, or technology..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-              className="search-input"
-            />
-            {searchTerm && (
-              <button 
-                className="clear-search"
-                onClick={() => setSearchTerm('')}
-                aria-label="Clear search"
-              >
-                <i className="fa fa-times"></i>
-              </button>
-            )}
+        <AnimatedSection animationType="fade" delay={50}>
+          <div className="projects-controls">
+            <div className="projects-search">
+              <i className="fa fa-search"></i>
+              <input
+                type="text"
+                placeholder="Search projects by name, description, or technology..."
+                value={searchTerm}
+                onChange={handleSearchChange}
+                className="search-input"
+              />
+              {searchTerm && (
+                <button
+                  className="clear-search"
+                  onClick={() => setSearchTerm('')}
+                  aria-label="Clear search"
+                >
+                  <i className="fa fa-times"></i>
+                </button>
+              )}
+            </div>
+            <div className="projects-filters">
+              {allTechnologies.map((tech) => (
+                <button
+                  key={tech}
+                  className={`filter-btn ${selectedFilter === tech ? 'active' : ''}`}
+                  onClick={() => handleFilterClick(tech)}
+                >
+                  {tech}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="projects-filters">
-            {allTechnologies.map((tech) => (
-              <button
-                key={tech}
-                className={`filter-btn ${selectedFilter === tech ? 'active' : ''}`}
-                onClick={() => handleFilterClick(tech)}
-              >
-                {tech}
-              </button>
-            ))}
-          </div>
-        </div>
+        </AnimatedSection>
 
         {/* Projects Count */}
         {filteredProjects.length > 0 && (
-          <div className="projects-count">
-            Showing {filteredProjects.length} of {projects.length} project{projects.length !== 1 ? 's' : ''}
-          </div>
+          <AnimatedSection animationType="fade" delay={100}>
+            <div className="projects-count">
+              Showing {filteredProjects.length} of {projects.length} project{projects.length !== 1 ? 's' : ''}
+            </div>
+          </AnimatedSection>
         )}
 
         <div className="projects-body">
           {filteredProjects.length > 0 ? (
             filteredProjects.map((project, index) => (
-            <div key={index} className={`project-card ${project.featured ? 'featured-project' : ''}`}>
-              {project.featured && (
-                <div className="featured-badge">
-                  <i className="fa fa-star"></i> Featured Project
-                </div>
-              )}
-              <div className="project-card-header">
-                <h3>{project.title}</h3>
-              </div>
-              <div className="project-card-body">
-                <p>{project.description}</p>
-                <div className="project-technologies">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className={`tech-tag ${project.featured ? 'featured-tech' : ''}`}>
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="project-card-footer">
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className={`project-link ${project.featured ? 'featured-link' : ''}`}>
-                  <i className="fa fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          ))
-          ) : (
-            <div className="no-projects">
-              <i className="fa fa-search"></i>
-              <p>No projects found matching your criteria.</p>
-              <button 
-                className="reset-filters-btn"
-                onClick={() => {
-                  setSelectedFilter('All');
-                  setSearchTerm('');
-                }}
+              <AnimatedSection
+                key={project.github || index}
+                animationType="scale"
+                delay={100 + (index * 30)}
               >
-                Clear Filters
-              </button>
-            </div>
-          )}
+                <TiltCard maxTilt={20} scale={1.08}>
+                  <d iv className={`project-card ${project.featured ? 'featured-project' : ''}`}>
+                    {p    roject.featured && (
+                    <d iv className="featured-badge">
+                      <i className="fa fa-star"></i> Featured Project
+                    </    div>
+              )}
+                    <d iv className="project-card-header">
+                      <h    3>{project.title}</h3>
+                  </    div>
+                  <d iv className="project-card-body">
+                    <p    >{project.description}</p>
+                    <d iv className="project-technologies">
+                      {p    roject.technologies.map((tech, techIndex) => (
+                      <s pan key={techIndex} className={`tech-tag ${project.featured ? 'featured-tech' : ''}`}>
+                        {t    ech}
+                      </    span>
+                  ))    }
+                    </    div>
+                  </    div>
+                  <d iv className="project-card-footer">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className={`project-link ${project.featured ? 'featured-link' : ''}`}>
+                      <i className="fa fa-github"></i> GitHub
+                    </    a>
+                  </    div>
+                </    div>
+              </TiltCard>
+              </AnimatedSection>
+        ))
+        ) : (
+        <div className="no-projects">
+          <i className="fa fa-search"></i>
+          <p>No projects found matching your criteria.</p>
+          <button
+            className="reset-filters-btn"
+            onClick={() => {
+              setSelectedFilter('All');
+              setSearchTerm('');
+            }}
+          >
+            Clear Filters
+          </button>
         </div>
+          )}
       </div>
-    </section>
+    </div>
+    </section >
   );
 }
 

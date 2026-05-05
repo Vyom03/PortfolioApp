@@ -11,12 +11,18 @@ import Projects from './PortfolioContainer/Projects/Projects';
 import Contact from './PortfolioContainer/Contact/Contact';
 import Footer from './PortfolioContainer/Footer/Footer';
 import GlobalParticles from './components/GlobalParticles';
+import AnimatedGradientMesh from './components/AnimatedGradientMesh';
+import ElegantWaves from './components/ElegantWaves';
+import FloatingShapes from './components/FloatingShapes';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <div className="App" style={{ position: 'relative' }}>
+      <AnimatedGradientMesh />
+      <ElegantWaves />
       <GlobalParticles />
+      <FloatingShapes />
       <Navbar />
       <Profile />
       <About />

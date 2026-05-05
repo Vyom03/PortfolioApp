@@ -1,4 +1,6 @@
 import React from 'react';
+import AnimatedSection from '../../components/AnimatedSection';
+import TiltCard from '../../components/TiltCard';
 import './Education.css';
 
 function Education() {
@@ -19,37 +21,43 @@ function Education() {
   return (
     <section id="education" className="education-container">
       <div className="education-parent">
-        <div className="education-header">
-          <span className="primary-text">
-            <span className="highlighted-text">Education</span>
-          </span>
-          <span className="education-subtitle">
-            My academic background and educational achievements.
-          </span>
-        </div>
+        <AnimatedSection animationType="slide-up" delay={0}>
+          <div className="education-header">
+            <span className="primary-text">
+              <span className="highlighted-text">Education</span>
+            </span>
+            <span className="education-subtitle">
+              My academic background and educational achievements.
+            </span>
+          </div>
+        </AnimatedSection>
         <div className="education-body">
           {education.map((edu, index) => (
-            <div key={index} className="education-card">
-              <div className="education-card-header">
-                <div className="education-institution-info">
-                  <h3 className="education-institution">{edu.institution}</h3>
-                  <span className="education-degree">{edu.degree}</span>
+            <AnimatedSection key={index} animationType="scale" delay={50}>
+              <TiltCard maxTilt={15} scale={1.05}>
+              <div className="education-card">
+                <div className="education-card-header">
+                  <div className="education-institution-info">
+                    <h3 className="education-institution">{edu.institution}</h3>
+                    <span className="education-degree">{edu.degree}</span>
+                  </div>
+                  <div className="education-meta">
+                    <span className="education-location">
+                      <i className="fa fa-map-marker"></i> {edu.location}
+                    </span>
+                    <span className="education-period">{edu.period}</span>
+                  </div>
                 </div>
-                <div className="education-meta">
-                  <span className="education-location">
-                    <i className="fa fa-map-marker"></i> {edu.location}
-                  </span>
-                  <span className="education-period">{edu.period}</span>
-                </div>
-              </div>
-              <div className="education-card-body">
-                <ul className="education-achievements">
-                  {edu.achievements.map((achievement, achIndex) => (
-                    <li key={achIndex}>{achievement}</li>
-                  ))}
+                <div className="education-card-body">
+                  <ul className="education-achievements">
+                    {edu.achievements.map((achievement, achIndex) => (
+                      <li key={achIndex}>{achievement}</li>
+                    ))}
                 </ul>
               </div>
             </div>
+            </TiltCard>
+            </AnimatedSection>
           ))}
         </div>
       </div>

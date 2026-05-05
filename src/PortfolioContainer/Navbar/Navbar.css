@@ -180,6 +180,7 @@
     z-index: 998;
     backdrop-filter: blur(2px);
   }
+
   .hamburger {
     display: flex;
   }
@@ -265,4 +266,3 @@
     font-size: 1.2rem;
   }
 }
-

@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedSection from '../../components/AnimatedSection';
 import './Skills.css';
 
 function Skills() {
@@ -60,35 +61,43 @@ function Skills() {
   return (
     <section id="skills" className="skills-container">
       <div className="skills-parent">
-        <div className="skills-header">
-          <span className="primary-text">
-            Professional <span className="highlighted-text">Skills</span>
-          </span>
-          <span className="skills-subtitle">
-            Here are some of my skills on which I have been working on for the past few years.
-          </span>
-        </div>
+        <AnimatedSection animationType="slide-up" delay={0}>
+          <div className="skills-header">
+            <span className="primary-text">
+              Professional <span className="highlighted-text">Skills</span>
+            </span>
+            <span className="skills-subtitle">
+              Here are some of my skills on which I have been working on for the past few years.
+            </span>
+          </div>
+        </AnimatedSection>
         <div className="skills-body">
           {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="skills-category-wrapper">
-              <h3 className="category-title">{category.title}</h3>
-              <div className="skills-category">
-                {category.skills.map((skill, index) => (
-                  <div key={index} className="skill-item">
-                    <div className="skill-name">
-                      <span>{skill.name}</span>
-                      <span>{skill.level}%</span>
+            <AnimatedSection
+              key={categoryIndex}
+              animationType="fade"
+              delay={categoryIndex * 50}
+            >
+              <div className="skills-category-wrapper">
+                <h3 className="category-title">{category.title}</h3>
+                <div className="skills-category">
+                  {category.skills.map((skill, index) => (
+                    <div key={index} className="skill-item">
+                      <div className="skill-name">
+                        <span>{skill.name}</span>
+                        <span>{skill.level}%</span>
+                      </div>
+                      <div className="skill-bar">
+                        <div
+                          className="skill-progress"
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
                     </div>
-                    <div className="skill-bar">
-                      <div 
-                        className="skill-progress" 
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

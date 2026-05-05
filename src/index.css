@@ -80,7 +80,7 @@ body::before {
 }
 
 [data-theme="dark"] body::before {
-  background: 
+  background:
     radial-gradient(circle at 20% 50%, rgba(10, 190, 173, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(255, 88, 35, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 40% 20%, rgba(10, 190, 173, 0.05) 0%, transparent 50%),
@@ -90,7 +90,7 @@ body::before {
 }
 
 [data-theme="light"] body::before {
-  background: 
+  background:
     radial-gradient(circle at 20% 50%, rgba(10, 190, 173, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(255, 88, 35, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 40% 20%, rgba(10, 190, 173, 0.02) 0%, transparent 50%),
@@ -106,7 +106,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(10, 190, 173, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(10, 190, 173, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -207,6 +207,7 @@ body ::-webkit-scrollbar-thumb {
   font-size: 12px;
   background-color: #ff5823;
 }
+
 @media only screen and (max-width: 568px) {
   .highlighted-btn {
     z-index: -900;

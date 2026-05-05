@@ -1,6 +1,6 @@
 import React from "react";
 import Typical from "react-typical";
-
+import MagneticButton from "../../components/MagneticButton";
 import './Profile.css';
 
 function Profile() {
@@ -15,21 +15,21 @@ function Profile() {
       <div className="profile-parent">
         <div className="profile-details">
           <div className="colz">
-              <div className="colz-icon" >
-            <a href="https://www.linkedin.com/in/vyomtrivedi/">
-              <i className="fa fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/Vyom03">
-              <i className="fa fa-github"></i>
-            </a>
-            <a href="https://www.facebook.com/vyom.trivedi.71/">
-              <i className="fa fa-facebook-square"></i>
-            </a>
-            <a href="https://www.instagram.com/vyomtrivedi_/">
-              <i className="fa fa-instagram"></i>
-            </a>
+            <div className="colz-icon" >
+              <a href="https://www.linkedin.com/in/vyomtrivedi/">
+                <i className="fa fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/Vyom03">
+                <i className="fa fa-github"></i>
+              </a>
+              <a href="https://www.facebook.com/vyom.trivedi.71/">
+                <i className="fa fa-facebook-square"></i>
+              </a>
+              <a href="https://www.instagram.com/vyomtrivedi_/">
+                <i className="fa fa-instagram"></i>
+              </a>
 
-              </div>
+            </div>
           </div>
 
           <div className="profile-details-name">
@@ -58,18 +58,21 @@ function Profile() {
             </span>
           </div>
           <div className="profile-options">
-            <button 
+            <MagneticButton
               className="btn primary-btn"
               onClick={() => scrollToSection('contact')}
+              distance={15}
             >
               {""}
               Hire Me{" "}
-            </button>
+            </MagneticButton>
             <a
               href="VyomResume.pdf"
               download="VyomResume.pdf"
             >
-              <button className="btn highlighted-btn">Get Resume</button>
+              <MagneticButton className="btn highlighted-btn" distance={15}>
+                Get Resume
+              </MagneticButton>
             </a>
           </div>
         </div>

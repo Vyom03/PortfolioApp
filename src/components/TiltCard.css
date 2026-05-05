@@ -1,0 +1,6 @@
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.5s ease-out;
+}
+

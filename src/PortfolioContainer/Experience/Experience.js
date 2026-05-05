@@ -1,8 +1,24 @@
 import React from 'react';
+import AnimatedSection from '../../components/AnimatedSection';
+import TiltCard from '../../components/TiltCard';
 import './Experience.css';
 
 function Experience() {
   const experiences = [
+    {
+      company: 'Netinc Digital',
+      position: 'Software Developer',
+      location: 'Ahmedabad, Gujarat',
+      period: 'October 2025 - Present',
+      achievements: [
+        'Developed and maintained multiple full-stack web applications using React and Vue.js frontends with Laravel and Lumen-based microservice backends',
+        'Designed and integrated RESTful APIs with OAuth 2.0 authentication across distributed services, ensuring secure and scalable access control',
+        'Architected event-driven microservice pipelines using Apache Kafka for asynchronous messaging and Memcached for distributed caching, reducing API response latency',
+        'Configured server infrastructure including FQDN assignment, Nginx and Apache reverse proxies, and API Gateway integration for routing and load management',
+        'Implemented Service Registry integration for dynamic service discovery, improving reliability across microservice deployments',
+        'Managed relational databases using MySQL and PostgreSQL, including schema design, query optimization, and migration management'
+      ]
+    },
     {
       company: 'Rogers Communications Canada',
       position: 'Software Developer',
@@ -35,37 +51,47 @@ function Experience() {
   return (
     <section id="experience" className="experience-container">
       <div className="experience-parent">
-        <div className="experience-header">
-          <span className="primary-text">
-            Work <span className="highlighted-text">Experience</span>
-          </span>
-          <span className="experience-subtitle">
-            My professional journey and key contributions in software development.
-          </span>
-        </div>
+        <AnimatedSection animationType="slide-up" delay={0}>
+          <div className="experience-header">
+            <span className="primary-text">
+              Work <span className="highlighted-text">Experience</span>
+            </span>
+            <span className="experience-subtitle">
+              My professional journey and key contributions in software development.
+            </span>
+          </div>
+        </AnimatedSection>
         <div className="experience-body">
           {experiences.map((exp, index) => (
-            <div key={index} className="experience-card">
-              <div className="experience-card-header">
-                <div className="experience-company-info">
-                  <h3 className="experience-company">{exp.company}</h3>
-                  <span className="experience-position">{exp.position}</span>
+            <AnimatedSection 
+              key={index} 
+              animationType={index % 2 === 0 ? 'slide-left' : 'slide-right'} 
+              delay={index * 50}
+            >
+              <TiltCard maxTilt={15} scale={1.05}>
+              <div className="experience-card">
+                <div className="experience-card-header">
+                  <div className="experience-company-info">
+                    <h3 className="experience-company">{exp.company}</h3>
+                    <span className="experience-position">{exp.position}</span>
+                  </div>
+                  <div className="experience-meta">
+                    <span className="experience-location">
+                      <i className="fa fa-map-marker"></i> {exp.location}
+                    </span>
+                    <span className="experience-period">{exp.period}</span>
+                  </div>
                 </div>
-                <div className="experience-meta">
-                  <span className="experience-location">
-                    <i className="fa fa-map-marker"></i> {exp.location}
-                  </span>
-                  <span className="experience-period">{exp.period}</span>
-                </div>
-              </div>
-              <div className="experience-card-body">
-                <ul className="experience-achievements">
-                  {exp.achievements.map((achievement, achIndex) => (
-                    <li key={achIndex}>{achievement}</li>
-                  ))}
+                <div className="experience-card-body">
+                  <ul className="experience-achievements">
+                    {exp.achievements.map((achievement, achIndex) => (
+                      <li key={achIndex}>{achievement}</li>
+                    ))}
                 </ul>
               </div>
             </div>
+            </TiltCard>
+            </AnimatedSection>
           ))}
         </div>
       </div>
