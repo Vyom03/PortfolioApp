@@ -9,21 +9,23 @@ function Skills() {
       skills: [
         { name: 'HTML/CSS', level: 95 },
         { name: 'JavaScript', level: 92 },
-        { name: 'React', level: 88 },
+        { name: 'React', level: 90 },
         { name: 'React Native', level: 85 },
         { name: 'Angular', level: 80 },
-        { name: 'Vue.js', level: 75 },
+        { name: 'Vue.js', level: 82 },
       ]
     },
     {
       title: 'Backend',
       skills: [
-        { name: 'RESTful APIs', level: 92 },
+        { name: 'RESTful APIs', level: 93 },
         { name: 'Python', level: 90 },
         { name: 'Perl', level: 85 },
-        { name: 'PHP', level: 85 },
+        { name: 'PHP', level: 87 },
+        { name: 'Laravel', level: 85 },
+        { name: 'Lumen', level: 80 },
+        { name: 'Microservice Architecture', level: 80 },
         { name: 'Java', level: 82 },
-        { name: 'Laravel', level: 80 },
         { name: 'Node.js', level: 80 },
         { name: 'Express.js', level: 75 },
         { name: 'C++', level: 75 },
@@ -33,27 +35,39 @@ function Skills() {
       title: 'Databases',
       skills: [
         { name: 'MySQL', level: 90 },
-        { name: 'PostgreSQL', level: 90 },
+        { name: 'PostgreSQL', level: 88 },
         { name: 'SQL Optimization', level: 88 },
         { name: 'MariaDB', level: 85 },
         { name: 'MongoDB', level: 75 },
       ]
     },
     {
+      title: 'Infrastructure & DevOps',
+      skills: [
+        { name: 'Nginx', level: 82 },
+        { name: 'Apache', level: 80 },
+        { name: 'Apache Kafka', level: 78 },
+        { name: 'Memcached', level: 78 },
+        { name: 'API Gateway', level: 78 },
+        { name: 'Service Registry', level: 75 },
+        { name: 'FQDN / DNS', level: 75 },
+        { name: 'Docker', level: 72 },
+        { name: 'SSH', level: 85 },
+        { name: 'SFTP / FTP', level: 85 },
+      ]
+    },
+    {
       title: 'Tools & Services',
       skills: [
         { name: 'Git / Azure DevOps', level: 88 },
+        { name: 'JWT / OAuth 2.0', level: 85 },
         { name: 'Postman', level: 85 },
-        { name: 'EmailJS', level: 85 },
-        { name: 'SFTP / FTP', level: 85 },
         { name: 'Agile/Scrum', level: 85 },
         { name: 'Swagger', level: 82 },
-        { name: 'SSH', level: 82 },
-        { name: 'turboSMTP', level: 80 },
-        { name: 'Selenium Testing', level: 80 },
         { name: 'SOAP/XML', level: 80 },
-        { name: 'JWT / OAuth', level: 78 },
-        { name: 'Docker', level: 70 },
+        { name: 'Selenium Testing', level: 80 },
+        { name: 'turboSMTP', level: 80 },
+        { name: 'EmailJS', level: 80 },
       ]
     }
   ];
