@@ -49,7 +49,6 @@ function Projects() {
     }
   ], []);
 
-  // Technology mapping from GitHub language names to display names (moved outside to avoid dependency issues)
   const techMapping = useMemo(() => ({
     'JavaScript': 'JavaScript',
     'TypeScript': 'TypeScript',
@@ -84,13 +83,11 @@ function Projects() {
     'Markdown': 'Markdown'
   }), []);
 
-  // Extract repository name from GitHub URL
   const getRepoName = (githubUrl) => {
     const match = githubUrl.match(/github\.com\/Vyom03\/([^/]+)/);
     return match ? match[1] : null;
   };
 
-  // Fetch languages from GitHub API
   useEffect(() => {
     const fetchLanguages = async () => {
       const projectsWithLanguages = await Promise.all(
@@ -106,18 +103,15 @@ function Projects() {
               const languages = await response.json();
               const githubTechs = Object.keys(languages)
                 .map(lang => techMapping[lang] || lang)
-                .filter(lang => lang && lang !== 'Markdown' && lang !== 'JSON' && lang !== 'YAML'); // Filter out common non-tech languages
+                .filter(lang => lang && lang !== 'Markdown' && lang !== 'JSON' && lang !== 'YAML');
 
-              // Merge: GitHub languages + manually specified technologies (remove duplicates)
               const allTechs = [...new Set([...githubTechs, ...(project.technologies || [])])];
-
               return { ...project, technologies: allTechs };
             }
           } catch (error) {
             console.error(`Error fetching languages for ${repoName}:`, error);
           }
 
-          // Fallback to original technologies if API call fails
           return { ...project, technologies: project.technologies || [] };
         })
       );
@@ -128,10 +122,8 @@ function Projects() {
     fetchLanguages();
   }, [baseProjects, techMapping]);
 
-  // Use projectsWithTech if available, otherwise fallback to baseProjects
   const projects = projectsWithTech.length > 0 ? projectsWithTech : baseProjects;
 
-  // Get all unique technologies from projects
   const allTechnologies = useMemo(() => {
     const techs = new Set();
     projects.forEach(project => {
@@ -140,7 +132,6 @@ function Projects() {
     return ['All', ...Array.from(techs).sort()];
   }, [projects]);
 
-  // Filter projects based on selected filter and search term
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
       const matchesFilter = selectedFilter === 'All' ||
@@ -163,7 +154,6 @@ function Projects() {
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-    // Reset filter when searching
     if (e.target.value !== '' && selectedFilter !== 'All') {
       setSelectedFilter('All');
     }
@@ -183,7 +173,6 @@ function Projects() {
           </div>
         </AnimatedSection>
 
-        {/* Search and Filter Controls */}
         <AnimatedSection animationType="fade" delay={50}>
           <div className="projects-controls">
             <div className="projects-search">
@@ -219,7 +208,6 @@ function Projects() {
           </div>
         </AnimatedSection>
 
-        {/* Projects Count */}
         {filteredProjects.length > 0 && (
           <AnimatedSection animationType="fade" delay={100}>
             <div className="projects-count">
@@ -257,34 +245,38 @@ function Projects() {
                       </div>
                     </div>
                     <div className="project-card-footer">
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className={`project-link ${project.featured ? 'featured-link' : ''}`}>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`project-link ${project.featured ? 'featured-link' : ''}`}
+                      >
                         <i className="fa fa-github"></i> GitHub
                       </a>
                     </div>
                   </div>
-              </TiltCard>
+                </TiltCard>
               </AnimatedSection>
-        ))
-        ) : (
-        <div className="no-projects">
-          <i className="fa fa-search"></i>
-          <p>No projects found matching your criteria.</p>
-          <button
-            className="reset-filters-btn"
-            onClick={() => {
-              setSelectedFilter('All');
-              setSearchTerm('');
-            }}
-          >
-            Clear Filters
-          </button>
-        </div>
+            ))
+          ) : (
+            <div className="no-projects">
+              <i className="fa fa-search"></i>
+              <p>No projects found matching your criteria.</p>
+              <button
+                className="reset-filters-btn"
+                onClick={() => {
+                  setSelectedFilter('All');
+                  setSearchTerm('');
+                }}
+              >
+                Clear Filters
+              </button>
+            </div>
           )}
-      </div>
+        </div>
       </div>
     </section>
   );
 }
 
 export default Projects;
-
