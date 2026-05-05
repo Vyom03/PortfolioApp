@@ -31,7 +31,6 @@
   animation: wave-move 25s ease-in-out infinite;
   transform-origin: center bottom;
   filter: blur(30px);
-  will-change: transform, opacity;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
@@ -92,8 +91,7 @@
   filter: blur(30px);
 }
 
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce), (hover: none) {
   .elegant-waves {
     display: none;
   }

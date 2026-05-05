@@ -424,6 +424,11 @@
   animation: pulse 2s infinite;
 }
 
+@media (hover: none) {
+  .featured-badge {
+    animation: none;
+}
+
 .featured-badge i {
   color: #ffd700;
 }

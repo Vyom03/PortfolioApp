@@ -52,6 +52,13 @@
     animation: float 15s ease-in-out infinite reverse;
 }
 
+@media (hover: none) {
+  .profile-container::before,
+  .profile-container::after {
+    display: none;
+  }
+}
+
 @keyframes float {
 
     0%,

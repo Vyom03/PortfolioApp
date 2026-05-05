@@ -123,6 +123,26 @@ body::after {
   opacity: 0.2;
 }
 
+/* ── Mobile: kill all GPU-heavy effects that cause flickering ── */
+@media (hover: none) {
+  /* Remove backdrop-filter across all cards */
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Remove backface-visibility which causes disappearing flickers */
+  .animated-section {
+    backface-visibility: visible !important;
+    -webkit-backface-visibility: visible !important;
+  }
+
+  /* Disable grid/dot overlay patterns on body */
+  body::after {
+    display: none;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

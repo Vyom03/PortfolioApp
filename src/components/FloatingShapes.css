@@ -57,10 +57,9 @@
   opacity: 0.15;
 }
 
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .floating-shape {
-    animation: none;
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .floating-shapes-container {
+    display: none;
   }
 }
 
