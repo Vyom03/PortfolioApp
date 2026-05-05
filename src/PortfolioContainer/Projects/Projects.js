@@ -237,31 +237,31 @@ function Projects() {
                 delay={100 + (index * 30)}
               >
                 <TiltCard maxTilt={20} scale={1.08}>
-                  <d iv className={`project-card ${project.featured ? 'featured-project' : ''}`}>
-                    {p    roject.featured && (
-                    <d iv className="featured-badge">
-                      <i className="fa fa-star"></i> Featured Project
-                    </    div>
-              )}
-                    <d iv className="project-card-header">
-                      <h    3>{project.title}</h3>
-                  </    div>
-                  <d iv className="project-card-body">
-                    <p    >{project.description}</p>
-                    <d iv className="project-technologies">
-                      {p    roject.technologies.map((tech, techIndex) => (
-                      <s pan key={techIndex} className={`tech-tag ${project.featured ? 'featured-tech' : ''}`}>
-                        {t    ech}
-                      </    span>
-                  ))    }
-                    </    div>
-                  </    div>
-                  <d iv className="project-card-footer">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className={`project-link ${project.featured ? 'featured-link' : ''}`}>
-                      <i className="fa fa-github"></i> GitHub
-                    </    a>
-                  </    div>
-                </    div>
+                  <div className={`project-card ${project.featured ? 'featured-project' : ''}`}>
+                    {project.featured && (
+                      <div className="featured-badge">
+                        <i className="fa fa-star"></i> Featured Project
+                      </div>
+                    )}
+                    <div className="project-card-header">
+                      <h3>{project.title}</h3>
+                    </div>
+                    <div className="project-card-body">
+                      <p>{project.description}</p>
+                      <div className="project-technologies">
+                        {project.technologies.map((tech, techIndex) => (
+                          <span key={techIndex} className={`tech-tag ${project.featured ? 'featured-tech' : ''}`}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="project-card-footer">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className={`project-link ${project.featured ? 'featured-link' : ''}`}>
+                        <i className="fa fa-github"></i> GitHub
+                      </a>
+                    </div>
+                  </div>
               </TiltCard>
               </AnimatedSection>
         ))
@@ -281,8 +281,8 @@ function Projects() {
         </div>
           )}
       </div>
-    </div>
-    </section >
+      </div>
+    </section>
   );
 }
 
