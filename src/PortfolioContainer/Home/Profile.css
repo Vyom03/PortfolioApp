@@ -220,12 +220,12 @@
 }
 
 /* ── Blinking cursor on role text ── */
-.profile-role-title::after {
-    content: '|';
+.typing-cursor {
     display: inline;
     color: var(--sea-green);
     margin-left: 2px;
     animation: cursor-blink 1s step-end infinite;
+    font-weight: normal;
 }
 
 @keyframes cursor-blink {

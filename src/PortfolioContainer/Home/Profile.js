@@ -57,7 +57,7 @@ function Profile() {
                   "API Integration Specialist", 3000,
                   "Backend Developer",      3000,
                 ]}
-              />
+              /><span className="typing-cursor">|</span>
             </h3>
             <span className="profile-role-tagline">
               Dynamic Software Developer excelling in API integration and full-stack development. I enhance system performance through rigorous testing methodologies and optimized SQL processes.
