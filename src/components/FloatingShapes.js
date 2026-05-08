@@ -9,7 +9,7 @@ function FloatingShapes() {
     if (!container) return;
 
     const shapes = [];
-    const shapeCount = 8;
+    const shapeCount = 4;
 
     // Create floating shapes
     for (let i = 0; i < shapeCount; i++) {
