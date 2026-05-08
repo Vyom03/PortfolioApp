@@ -67,8 +67,8 @@ function Profile() {
               Hire Me{" "}
             </MagneticButton>
             <a
-              href="VyomResume.pdf"
-              download="VyomResume.pdf"
+              href="Vyom_Resume.pdf"
+              download="Vyom_Resume.pdf"
             >
               <MagneticButton className="btn highlighted-btn" distance={15}>
                 Get Resume

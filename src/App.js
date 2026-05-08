@@ -18,7 +18,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
-    <div className="App" style={{ position: 'relative' }}>
+    <div className="App" style={{ position: 'relative', overflowX: 'hidden' }}>
       <AnimatedGradientMesh />
       <ElegantWaves />
       <GlobalParticles />

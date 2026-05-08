@@ -53,10 +53,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   overflow-y: overlay;
   font-family: "Poppins Regular";
   -webkit-font-smoothing: antialiased;
