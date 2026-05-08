@@ -18,11 +18,32 @@ function GlobalParticles() {
     const particleCount = 70;
 
     const resizeCanvas = () => {
+      const prevW = canvas.width;
+      const prevH = canvas.height;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+
+      // Proportionally rescale particle positions so they spread across
+      // the new canvas size instead of clogging at the edges.
+      if (prevW > 0 && prevH > 0 && particlesRef.current.length) {
+        const scaleX = canvas.width / prevW;
+        const scaleY = canvas.height / prevH;
+        particlesRef.current.forEach((p) => {
+          p.x = Math.max(0, Math.min(canvas.width,  p.x * scaleX));
+          p.y = Math.max(0, Math.min(canvas.height, p.y * scaleY));
+        });
+      }
     };
+
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+
+    // Debounce resize — canvas only needs to settle once the user stops dragging.
+    let resizeTimer = null;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resizeCanvas, 80);
+    };
+    window.addEventListener('resize', handleResize);
 
     class Particle {
       constructor() {
@@ -131,7 +152,8 @@ function GlobalParticles() {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      clearTimeout(resizeTimer);
+      window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
