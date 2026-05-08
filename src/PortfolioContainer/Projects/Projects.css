@@ -274,7 +274,7 @@
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   border-color: var(--dark-orange);
 }
 

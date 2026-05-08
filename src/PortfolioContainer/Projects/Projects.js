@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import AnimatedSection from '../../components/AnimatedSection';
-import TiltCard from '../../components/TiltCard';
 import './Projects.css';
 
 function Projects() {
@@ -224,7 +223,6 @@ function Projects() {
                 animationType="scale"
                 delay={100 + (index * 30)}
               >
-                <TiltCard maxTilt={20} scale={1.08}>
                   <div className={`project-card ${project.featured ? 'featured-project' : ''}`}>
                     {project.featured && (
                       <div className="featured-badge">
@@ -255,7 +253,6 @@ function Projects() {
                       </a>
                     </div>
                   </div>
-                </TiltCard>
               </AnimatedSection>
             ))
           ) : (

@@ -91,7 +91,7 @@
 }
 
 .education-card:hover {
-  transform: translateX(10px);
+  transform: translateY(-5px);
 }
 
 [data-theme="dark"] .education-card:hover {

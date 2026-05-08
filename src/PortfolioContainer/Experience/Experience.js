@@ -1,6 +1,5 @@
 import React from 'react';
 import AnimatedSection from '../../components/AnimatedSection';
-import TiltCard from '../../components/TiltCard';
 import './Experience.css';
 
 function Experience() {
@@ -68,7 +67,6 @@ function Experience() {
               animationType={index % 2 === 0 ? 'slide-left' : 'slide-right'} 
               delay={index * 50}
             >
-              <TiltCard maxTilt={15} scale={1.05}>
               <div className="experience-card">
                 <div className="experience-card-header">
                   <div className="experience-company-info">
@@ -90,7 +88,6 @@ function Experience() {
                 </ul>
               </div>
             </div>
-            </TiltCard>
             </AnimatedSection>
           ))}
         </div>

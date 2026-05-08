@@ -1,6 +1,5 @@
 import React from 'react';
 import AnimatedSection from '../../components/AnimatedSection';
-import TiltCard from '../../components/TiltCard';
 import './Education.css';
 
 function Education() {
@@ -34,7 +33,6 @@ function Education() {
         <div className="education-body">
           {education.map((edu, index) => (
             <AnimatedSection key={index} animationType="scale" delay={50}>
-              <TiltCard maxTilt={15} scale={1.05}>
               <div className="education-card">
                 <div className="education-card-header">
                   <div className="education-institution-info">
@@ -56,7 +54,6 @@ function Education() {
                 </ul>
               </div>
             </div>
-            </TiltCard>
             </AnimatedSection>
           ))}
         </div>

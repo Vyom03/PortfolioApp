@@ -91,6 +91,7 @@
 }
 
 .experience-card:hover {
+  transform: translateY(-5px);
   border-left-color: var(--orange);
 }
 
