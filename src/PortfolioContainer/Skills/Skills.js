@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AnimatedSection from '../../components/AnimatedSection';
 import './Skills.css';
 
 function Skills() {
+  const [openCategories, setOpenCategories] = useState(new Set([0]));
+
+  const toggleCategory = (index) => {
+    setOpenCategories((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
+    });
+  };
+
   const skillCategories = [
     {
       title: 'Frontend',
@@ -92,14 +103,20 @@ function Skills() {
               animationType="fade"
               delay={categoryIndex * 50}
             >
-              <div className="skills-category-wrapper">
-                <h3 className="category-title">{category.title}</h3>
-                <div className="skills-category">
+              <div className={`skills-category-wrapper${openCategories.has(categoryIndex) ? ' open' : ''}`}>
+                <h3
+                  className="category-title"
+                  onClick={() => toggleCategory(categoryIndex)}
+                >
+                  {category.title}
+                  <span className="category-chevron">&#8964;</span>
+                </h3>
+                <div className="skills-category-content">
                   {category.skills.map((skill, index) => (
                     <div key={index} className="skill-item">
                       <div className="skill-name">
                         <span>{skill.name}</span>
-                        <span>{skill.level}%</span>
+                        <span className="skill-percentage">{skill.level}%</span>
                       </div>
                       <div className="skill-bar">
                         <div
@@ -120,4 +137,3 @@ function Skills() {
 }
 
 export default Skills;
-

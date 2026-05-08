@@ -230,11 +230,6 @@ body ::-webkit-scrollbar-thumb {
   background-color: #ff5823;
 }
 
-@media only screen and (max-width: 568px) {
-  .highlighted-btn {
-    z-index: -900;
-  }
-}
 
 .red-border {
   border: 1px solid var(--error-message) !important;

@@ -140,6 +140,25 @@
   padding-bottom: 0.75rem;
   border-bottom: 2px solid rgba(12, 191, 174, 0.3);
   letter-spacing: 0.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-chevron {
+  font-size: 1.2rem;
+  display: none;
+  transition: transform 0.3s ease;
+  color: var(--sea-green);
+  line-height: 1;
+}
+
+/* Desktop: content always visible */
+.skills-category-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
 }
 
 .skills-category {
@@ -217,14 +236,38 @@
     padding: 1.5rem 1.75rem;
   }
 
+  /* Accordion: show chevron, make title tappable */
   .category-title {
     font-size: 1.3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     padding-bottom: 0.6rem;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .skills-category {
+  .category-chevron {
+    display: inline-block;
+  }
+
+  .skills-category-wrapper.open .category-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Collapse content by default, expand when open */
+  .skills-category-content {
+    display: none;
+    padding-top: 1.25rem;
     gap: 1.1rem;
+  }
+
+  .skills-category-wrapper.open .skills-category-content {
+    display: flex;
+  }
+
+  /* Disable lift hover on mobile (accordion replaces it) */
+  .skills-category-wrapper:hover {
+    transform: none;
   }
 
   .skill-name {
@@ -234,5 +277,31 @@
 
   .skill-bar {
     height: 7px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills-container {
+    padding: 40px 15px;
+  }
+
+  .skills-header .primary-text {
+    font-size: 1.75rem;
+  }
+
+  .skills-category-wrapper {
+    padding: 1.2rem 1.25rem;
+  }
+
+  .category-title {
+    font-size: 1.1rem;
+  }
+
+  .skill-name {
+    font-size: 0.9rem;
+  }
+
+  .skill-percentage {
+    font-size: 0.8rem;
   }
 }

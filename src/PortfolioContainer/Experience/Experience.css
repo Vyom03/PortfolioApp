@@ -204,9 +204,18 @@
   margin-bottom: 0;
 }
 
+/* Show-more button — hidden on desktop */
+.show-more-btn {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .experience-header .primary-text {
     font-size: 2rem;
+  }
+
+  .experience-body {
+    gap: 1.5rem;
   }
 
   .experience-card {
@@ -228,6 +237,36 @@
 
   .experience-position {
     font-size: 1rem;
+  }
+
+  /* Truncate bullets 4 and beyond by default */
+  .experience-achievements li:nth-child(n+4) {
+    display: none;
+  }
+
+  /* When card is expanded, show all bullets */
+  .experience-card.expanded .experience-achievements li:nth-child(n+4) {
+    display: list-item;
+  }
+
+  /* Show-more toggle button */
+  .show-more-btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--sea-green);
+    font-family: 'Poppins Medium';
+    font-size: 0.9rem;
+    padding: 0.6rem 0 0;
+    margin-top: 0.25rem;
+    transition: color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .show-more-btn:hover,
+  .show-more-btn:active {
+    color: var(--dark-orange);
   }
 }
 

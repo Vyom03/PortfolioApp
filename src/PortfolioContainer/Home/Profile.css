@@ -219,19 +219,6 @@
     color: var(--sea-green);
 }
 
-/* ── Blinking cursor on role text ── */
-.typing-cursor {
-    display: inline;
-    color: var(--sea-green);
-    margin-left: 2px;
-    animation: cursor-blink 1s step-end infinite;
-    font-weight: normal;
-}
-
-@keyframes cursor-blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-}
 
 @media screen and (max-width: 900px) {
     .profile-parent {

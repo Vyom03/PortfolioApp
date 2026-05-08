@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AnimatedSection from '../../components/AnimatedSection';
 import './Experience.css';
 
 function Experience() {
+  const [expandedCards, setExpandedCards] = useState({});
+
+  const toggleCard = (index) => {
+    setExpandedCards((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
+
   const experiences = [
     {
       company: 'Netinc Digital',
@@ -47,6 +53,8 @@ function Experience() {
     }
   ];
 
+  const VISIBLE_COUNT = 3;
+
   return (
     <section id="experience" className="experience-container">
       <div className="experience-parent">
@@ -62,12 +70,12 @@ function Experience() {
         </AnimatedSection>
         <div className="experience-body">
           {experiences.map((exp, index) => (
-            <AnimatedSection 
-              key={index} 
-              animationType={index % 2 === 0 ? 'slide-left' : 'slide-right'} 
+            <AnimatedSection
+              key={index}
+              animationType={index % 2 === 0 ? 'slide-left' : 'slide-right'}
               delay={index * 50}
             >
-              <div className="experience-card">
+              <div className={`experience-card${expandedCards[index] ? ' expanded' : ''}`}>
                 <div className="experience-card-header">
                   <div className="experience-company-info">
                     <h3 className="experience-company">{exp.company}</h3>
@@ -85,9 +93,19 @@ function Experience() {
                     {exp.achievements.map((achievement, achIndex) => (
                       <li key={achIndex}>{achievement}</li>
                     ))}
-                </ul>
+                  </ul>
+                  {exp.achievements.length > VISIBLE_COUNT && (
+                    <button
+                      className="show-more-btn"
+                      onClick={() => toggleCard(index)}
+                    >
+                      {expandedCards[index]
+                        ? 'Show less ↑'
+                        : `Show ${exp.achievements.length - VISIBLE_COUNT} more ↓`}
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
             </AnimatedSection>
           ))}
         </div>
@@ -97,4 +115,3 @@ function Experience() {
 }
 
 export default Experience;
-
