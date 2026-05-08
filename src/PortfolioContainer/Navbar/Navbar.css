@@ -1,3 +1,15 @@
+/* Scroll progress bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sea-green), var(--dark-orange));
+  z-index: 10000;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -80,6 +92,33 @@
 
 .navbar-menu li a:active {
   color: var(--sea-green);
+}
+
+.navbar-menu li a.nav-active {
+  color: var(--sea-green);
+  position: relative;
+}
+
+.navbar-menu li a.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--sea-green);
+  border-radius: 2px;
+}
+
+/* Mobile: active indicator as left border instead of underline */
+@media screen and (max-width: 768px) {
+  .navbar-menu li a.nav-active::after {
+    display: none;
+  }
+  .navbar-menu li a.nav-active {
+    border-left: 3px solid var(--sea-green);
+    padding-left: 0.6rem;
+  }
 }
 
 /* Theme Toggle Button */

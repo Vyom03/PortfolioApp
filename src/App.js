@@ -15,6 +15,7 @@ import AnimatedGradientMesh from './components/AnimatedGradientMesh';
 import ElegantWaves from './components/ElegantWaves';
 import FloatingShapes from './components/FloatingShapes';
 import ScrollToTop from './components/ScrollToTop';
+import StatsStrip from './components/StatsStrip';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Navbar />
       <Profile />
       <About />
+      <StatsStrip />
       <Experience />
       <Education />
       <Skills />

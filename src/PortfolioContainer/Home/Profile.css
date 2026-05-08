@@ -75,16 +75,55 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 900px;
+    gap: 4rem;
+    max-width: 1000px;
     width: 100%;
     color: var(--text-primary);
     position: relative;
     z-index: 1;
 }
 
-.profile-details {
+/* ── Photo column ── */
+.profile-photo-col {
+    flex-shrink: 0;
+}
+
+.profile-photo-wrapper {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--sea-green), var(--dark-orange));
+    box-shadow:
+        0 0 0 6px rgba(10, 190, 173, 0.15),
+        0 20px 60px rgba(10, 190, 173, 0.25);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.profile-photo-wrapper:hover {
+    transform: scale(1.03);
+    box-shadow:
+        0 0 0 8px rgba(10, 190, 173, 0.2),
+        0 25px 70px rgba(10, 190, 173, 0.35);
+}
+
+.profile-photo {
     width: 100%;
-    text-align: center;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* ── Text column ── */
+.profile-text-col {
+    flex: 1;
+    text-align: left;
+}
+
+.profile-text-col .colz .colz-icon {
+    justify-content: flex-start;
 }
 
 .profile-details-name {
@@ -98,7 +137,7 @@
     display: flex;
     flex-direction: column;
     margin: 24px 0 32px 0;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .profile-role-title {
@@ -180,6 +219,49 @@
     color: var(--sea-green);
 }
 
+/* ── Blinking cursor on role text ── */
+.profile-role-title::after {
+    content: '|';
+    display: inline;
+    color: var(--sea-green);
+    margin-left: 2px;
+    animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+@media screen and (max-width: 900px) {
+    .profile-parent {
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .profile-photo-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-text-col {
+        text-align: center;
+    }
+
+    .profile-text-col .colz .colz-icon {
+        justify-content: center;
+    }
+
+    .profile-details-role {
+        align-items: center;
+    }
+
+    .profile-options {
+        justify-content: center;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .profile-details-name {
         font-size: 2rem;
@@ -206,6 +288,11 @@
 @media screen and (max-width: 480px) {
     .profile-container {
         padding: 60px 15px 30px;
+    }
+
+    .profile-photo-wrapper {
+        width: 160px;
+        height: 160px;
     }
 
     .profile-details-name {

@@ -2,36 +2,56 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
 import './Navbar.css';
 
+const SECTIONS = ['about', 'experience', 'education', 'skills', 'projects', 'contact'];
+
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
+  // Scroll progress + scrolled state
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      setScrolled(isScrolled);
+      setScrolled(window.scrollY > 20);
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
     };
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Active section tracking
+  useEffect(() => {
+    const observers = [];
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { threshold: 0.3, rootMargin: '-80px 0px -20% 0px' }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setMenuOpen(false); // Close menu on mobile after clicking
+      setMenuOpen(false);
     }
   };
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
     <>
-      {menuOpen && <div className="menu-backdrop" onClick={toggleMenu}></div>}
+      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
+      {menuOpen && <div className="menu-backdrop" onClick={toggleMenu} />}
       <nav className={scrolled ? 'navbar scrolled' : 'navbar'}>
         <div className="navbar-container">
           <div className="navbar-logo" onClick={() => scrollToSection('home')}>
@@ -47,36 +67,17 @@ function Navbar() {
             <span></span>
           </button>
           <ul className={`navbar-menu ${menuOpen ? 'active' : ''}`}>
-            <li>
-              <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }}>
-                Experience
-              </a>
-            </li>
-            <li>
-              <a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }}>
-                Education
-              </a>
-            </li>
-            <li>
-              <a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>
-                Skills
-              </a>
-            </li>
-            <li>
-              <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>
-                Contact
-              </a>
-            </li>
+            {SECTIONS.map((id) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className={activeSection === id ? 'nav-active' : ''}
+                  onClick={(e) => { e.preventDefault(); scrollToSection(id); }}
+                >
+                  {id.charAt(0).toUpperCase() + id.slice(1)}
+                </a>
+              </li>
+            ))}
           </ul>
           <button
             className="theme-toggle-btn"
@@ -94,4 +95,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
